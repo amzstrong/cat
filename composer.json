@@ -1,0 +1,11 @@
+{
+  "require": {
+    "catfan/medoo": "^1.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "cat\\Common\\": "common/",
+      "cat\\lib\\": "lib/"
+    }
+  }
+}

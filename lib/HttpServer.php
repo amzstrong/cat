@@ -15,7 +15,7 @@ class HttpServer {
             'worker_num' => 10,
             'daemonize' => false,
             'max_request' => 100000,
-            'dispatch_mode' => 1,
+            'dispatch_mode' => 3,
             'debug_mode' => 0
         );
     
@@ -137,7 +137,7 @@ class HttpServer {
             $request_uri = $request->server['request_uri'];
             $request     = new \Yaf_Request_Http($request_uri);
             $this->yaf_instance->getDispatcher()->dispatch($request);
-        } catch (\Yaf\Exception $e) {
+        } catch (\Yaf_Exception $e) {
             var_dump($e);
         }
         $result = ob_get_contents();

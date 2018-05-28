@@ -80,7 +80,7 @@ class HttpServer {
                 exit();
                 break;
             default:
-                echo "Usage(php  yourfile start|start -d|restart -d|stop)" . PHP_EOL;
+                echo "Usage(php  yourfile start|start -d|stop)" . PHP_EOL;
                 exit();
             //@posix_kill($master_pid, 0)
         }

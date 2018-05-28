@@ -1,20 +1,20 @@
-#swoole+yaf 集合在一起做http服务
+# swoole+yaf 集合在一起做http服务
 
-##文件目录
+## 文件目录
 
-###--cat
-###----application
-####----controllers
-####----modules
-####----views
-###----common
-###----conf
-###----lib
-###----vender
-###----bootstrap.php
+### --cat
+### ----application
+#### ----controllers
+#### ----modules
+#### ----views
+### ----common
+### ----conf
+### ----lib
+### ----vender
+### ----bootstrap.php
 
 
-##server示例
+## server示例
 ```
 <?php
 /**
@@ -39,7 +39,7 @@ php server.php start -d   //启动一个deamon进程
 会提示用法
 Usage(php  yourfile start|start -d|stop)
 
-##controllers 示例
+## controllers 示例
 
 ```
 <?php
@@ -62,7 +62,7 @@ class TestController extends \Yaf_Controller_Abstract {
 swoole中yaf基本操作和在fpm模式下基本差不多,注意不能用die,exit,一些全局变量$_SEVER也有不同,具体见swoole官方文档。
 
 
-##压力测试
+## 压力测试
 机器 单核+2g(本地测试)
 
 

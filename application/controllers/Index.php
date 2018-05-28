@@ -1,5 +1,5 @@
 <?php
-class IndexController extends Yaf_Controller_Abstract {
+class IndexController extends \Yaf_Controller_Abstract {
     public function indexAction() {//默认Action
         $id = $_GET['id'];
         $d  = $_GET['d'];

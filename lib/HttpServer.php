@@ -134,7 +134,7 @@ class HttpServer {
         $post   = isset($request->post) ? $request->post : array();
         $cookie = isset($request->cookie) ? $request->cookie : array();
         $files  = isset($request->files) ? $request->files : array();
-        \Yaf_Registry::set('RESPONSE', $response);
+        \Yaf_Registry::set('SWOOLE_HTTP_RESPONSE', $response);
         \Yaf_Registry::set('REQUEST_SERVER', $server);
         \Yaf_Registry::set('REQUEST_HEADER', $header);
         \Yaf_Registry::set('REQUEST_GET', $get);

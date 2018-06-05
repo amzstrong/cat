@@ -9,9 +9,8 @@
 namespace cat\lib;
 
 trait WebControllerTrait {
-
-    public function test() {
-        echo 'test' . PHP_EOL;
-    }
-
+    
+    use BaseHttpTrait;
+    
+    
 }

@@ -103,7 +103,7 @@ class HttpServer {
         $this->options = $options;
     }
     
-    public function onRequest($request, $response) {
+    public function onRequest(\swoole_http_request $request, \swoole_http_response $response) {
         if (isset($request->server)) {
             $this->server = $request->server;
         } else {
@@ -128,10 +128,25 @@ class HttpServer {
         if ($request->server['path_info'] == '/favicon.ico' || $request->server['request_uri'] == '/favicon.ico') {
             return $response->end();
         }
+        $server = isset($request->server) ? $request->server : array();
+        $header = isset($request->header) ? $request->header : array();
+        $get    = isset($request->get) ? $request->get : array();
+        $post   = isset($request->post) ? $request->post : array();
+        $cookie = isset($request->cookie) ? $request->cookie : array();
+        $files  = isset($request->files) ? $request->files : array();
+        \Yaf_Registry::set('RESPONSE', $response);
+        \Yaf_Registry::set('REQUEST_SERVER', $server);
+        \Yaf_Registry::set('REQUEST_HEADER', $header);
+        \Yaf_Registry::set('REQUEST_GET', $get);
+        \Yaf_Registry::set('REQUEST_POST', $post);
+        \Yaf_Registry::set('REQUEST_COOKIE', $cookie);
+        \Yaf_Registry::set('REQUEST_FILES', $files);
+        \Yaf_Registry::set('REQUEST_RAW_CONTENT', $request->rawContent());
+        \Yaf_Registry::set('REQUEST_ALL_DATA', $request->getData());
         $this->handle($request, $response);
     }
     
-    protected function handle($request, $response) {
+    protected function handle(\swoole_http_request $request, \swoole_http_response $response) {
         ob_start();
         try {
             $request_uri = $request->server['request_uri'];
